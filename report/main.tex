@@ -42,7 +42,7 @@ The problem of automatic chess games descriptions generation is not quite popula
 \label{sec:related}
 There are not so many papers and works related to this topic due to its unpopularity. One of the most detailed and resent ones is a paper \href{https://aclanthology.org/P18-1154/}{"Learning to Generate Move-by-Move Commentary for Chess Games from Large-Scale Social Forum Data"}\cite{article}
 
-First of all, authors introduce a new large-scale chess commentary dataset consists of 298K aligned game move/commentary pairs (table 1)~\ref{table:1}~\ref{table:2}. The dataset \textit{D} consists of data points of the form $(Si, Mi, Gi), i \in \{1, 2, .., |D|\}$ where $S_i$ is the commentary text for move $M_i$ and $G_i$ is the corresponding chess game. $S_{i_1}$ is a sequence of m tokens $S_{i_1}, S_{i_2}, ..., S_{i_m}$, so the solution of the move commentary boils down to modeling the probability $P(S_i|M_i, C_i, R_i)$, where $C_i$ and $Ri$ are current and previous board stages.
+First of all, authors introduce a new large-scale chess commentary dataset consists of 298K aligned game move/commentary pairs tables ~\ref{table:1}, ~\ref{table:2}. The dataset \textit{D} consists of data points of the form $(Si, Mi, Gi), i \in \{1, 2, .., |D|\}$ where $S_i$ is the commentary text for move $M_i$ and $G_i$ is the corresponding chess game. $S_{i_1}$ is a sequence of m tokens $S_{i_1}, S_{i_2}, ..., S_{i_m}$, so the solution of the move commentary boils down to modeling the probability $P(S_i|M_i, C_i, R_i)$, where $C_i$ and $Ri$ are current and previous board stages.
 
 Authors consider the following features to provide their model with necessary information to generate commentary texts:
 
@@ -52,8 +52,8 @@ Authors consider the following features to provide their model with necessary in
 \item \textbf{Score} features $f_{score}(M_i, C_i, R_i)$ - capture the quality of move and general progress of the game
 \end{itemize}
 
-Representing of all these features is considered through embeddings. For categorical features we authors directly look up the embedding using corresponding token, while real valued features are encoded by first binning them and then using corresponding number for embedding lookup. Let $E$ represent the embedding matrix. Then $E[f^j_{move}]$ represents embeddings of $j_th$ move feature, or in general $E[f_{move}]$ represents the concatenated embeddings of all move features. Similarly, $E(f_{move}, f_{threat}, f_{score})$ represents concatenated embeddings of all the features.
-Finally, authors' model contain LSTM as a decoder. At every output step, the LSTM decoder predicts a distribution over vocabulary words to construct a commentary output. Figure 1~\ref{fig:1} demonstrates a schematic model overview.
+Representing of all these features is considered through embeddings. For categorical features authors directly look up the embedding using corresponding token, while real valued features are encoded by first binning them and then using corresponding number for embedding lookup. Let $E$ represent the embedding matrix. Then $E[f^j_{move}]$ represents embeddings of $j_{th}$ move feature, or in general $E[f_{move}]$ represents the concatenated embeddings of all move features. Similarly, $E(f_{move}, f_{threat}, f_{score})$ represents concatenated embeddings of all the features.
+Finally, authors' model contain LSTM as a decoder. At every output step, the LSTM decoder predicts a distribution over vocabulary words to construct a commentary output. Figure ~\ref{fig:1} demonstrates a schematic model overview.
 
 \begin{figure}
     \centering
@@ -62,7 +62,7 @@ Finally, authors' model contain LSTM as a decoder. At every output step, the LST
     \label{fig:1}
     \end{figure}
 
-Authors mainly observe BLEU and BLEU-2 scores to measure the performance of the models and conduct a human evaluation study.~\ref{table:3}~\ref{table:4}
+Authors mainly observe BLEU and BLEU-2 scores to measure the performance of the models and conduct a human evaluation study (tables ~\ref{table:3} and ~\ref{table:4})
 
 \begin{table}
 \centering
