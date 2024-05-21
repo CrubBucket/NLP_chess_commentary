@@ -7,6 +7,6 @@ To learn more about this problem check out the [the following article](https://a
 
 ## Repo structure:
 
-data - folder with data mining code
+data/ - folder with data mining code
 
-report - folder with a project report
+report/ - folder with a project report
